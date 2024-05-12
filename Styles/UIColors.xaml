@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Main background colors-->
+    <Color x:Key="MainColor1">#FFFFFAF0</Color>
+    
+    <!--Menu colors-->
+    <Color x:Key="MenuMainColor1">#453038</Color>
+    <Color x:Key="MenuMainColor2">#674854</Color>
+    
+    <!--Border color-->
+    <Color x:Key="BorderColor">#453038</Color>
+    
+    <!--Button color-->
+    
+    <!--Text color-->
+    <Color x:Key="Header1Color"></Color>
+</ResourceDictionary>
