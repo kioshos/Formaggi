@@ -82,7 +82,8 @@ namespace Formaggi.Services
                             Login = reader["ULogin"].ToString().Trim(),
                             Password = reader["UPassword"].ToString().Trim(),
                             Email = reader["Users_Contact"].ToString(),
-                            role = Convert.ToInt32(reader["role_id"])
+                            role = Convert.ToInt32(reader["role_id"]),
+                           
                         });
                     }
                 }

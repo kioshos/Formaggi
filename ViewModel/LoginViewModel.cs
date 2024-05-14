@@ -19,6 +19,7 @@ namespace Formaggi.ViewModel
         private string _password;
 
         public ICommand LoginCommand { get; private set; }
+        public ICommand openRegistrationWindowCommand { get; private set; }
         public string Username { get => _username; set => _username = value; }
         public string Password { get => _password; set => _password = value; }
 
@@ -28,13 +29,13 @@ namespace Formaggi.ViewModel
             _password = string.Empty;
             _usersContext = new UsersContext();
             LoginCommand = new RelayCommand(Login, null);
+            openRegistrationWindowCommand = new RelayCommand(OpenRegistrateWindow, null);
         }
 
         private void Login()
         {
             User currentUser = _usersContext.IsClientExist(Username, Password);
            
-
             try
             {
                 int role = currentUser.role;
@@ -66,6 +67,11 @@ namespace Formaggi.ViewModel
             {
                 MessageBox.Show("Oops, something went wrong." + ex.ToString());
             }
+        }
+        private void OpenRegistrateWindow()
+        {
+            Window reg = new RegistrationWindow();
+            reg.Show();
         }
     }
 

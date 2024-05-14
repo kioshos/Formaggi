@@ -8,14 +8,15 @@
         Title="LoginView" Height="450" Width="400"
         WindowStartupLocation="CenterScreen">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="350">
-        <TextBlock Margin="5" Text="Welcome" HorizontalAlignment="Center"/>
+
+        <TextBlock Margin="5" Text="Welcome" FontFamily="/Styles/#UbuntuMono" HorizontalAlignment="Center" FontSize="16"/>
         <TextBlock Margin="5"  Text="Login"/>
         <TextBox x:Name="LoginTextBox" Margin="5"  Text="{Binding Username, Mode=TwoWay}"></TextBox>
         <TextBlock Margin="5"  Text="Password"/>
         <TextBox x:Name="PasswordTextBox" Margin="5"  Text="{Binding Password, Mode=TwoWay}"></TextBox>
         <Button Margin="5"  Content="Login" Command="{Binding LoginCommand}"/>
         <TextBlock Margin="5"  Text="Don't have an account yet?"></TextBlock>
-        <Button Margin="5" Content="Registration" Click="Button_Click"/>
+        <Button Margin="5" Content="Registration" Command="{Binding  openRegistrationWindowCommand}"/>
     </StackPanel>
 
 </Window>

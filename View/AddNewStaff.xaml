@@ -1,0 +1,25 @@
+﻿<Window x:Class="Formaggi.View.AddNewStaff"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Formaggi.View"
+        mc:Ignorable="d"
+        Title="AddNewStaff" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="ADD"/>
+            <TextBlock Text="Name"/>
+            <TextBox Text="{Binding StaffName, Mode=TwoWay}"/>
+            <TextBlock Text="Contact"/>
+            <TextBox Text="{Binding StaffContact, Mode=TwoWay}"/>
+            <TextBlock Text="Address"/>
+            <TextBox Text="{Binding StaffAddress, Mode=TwoWay}"/>
+            <TextBlock Text="Birth"/>
+            <DatePicker SelectedDate="{Binding StaffBirth}"/>
+            <TextBlock Text="Salary"/>
+            <TextBox Text="{Binding StaffSalary, Mode=TwoWay}"/>
+            <Button Content="Add" Command="{Binding AddNewStaffCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,5 +1,7 @@
-﻿using Formaggi.Services;
+﻿using Formaggi.Model;
+using Formaggi.Services;
 using Formaggi.ViewModel;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +28,26 @@ namespace Formaggi.View
         public StaffPage()
         {
             InitializeComponent();
-
-
-            DataContext = new StaffViewModel();
+            DataContext = new StaffContext();
 
         }
+
+        private void AddStaff_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveStaff_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+        ////private void AddStaff_Click(object sender, RoutedEventArgs e)
+        ////{
+        ////    AddNewStaff registration = new AddNewStaff();
+        ////    registration.Show();
+        ////}
     }
 }

@@ -27,12 +27,16 @@ namespace Formaggi.ViewModel
         }
         public ICommand CurrentContentCommand { get; private set; }
         public ICommand IngredientContentCommand { get; private set; }
+        public ICommand CheeseContentCommand { get; private set; }
 
         public ManagerViewModel()
         {
             CurrentContentCommand = new RelayCommand(CurrentContext,null);
             IngredientContentCommand = new RelayCommand(IngredientContext, null);
+            CheeseContentCommand = new RelayCommand(CheeseContext,null);
         }
+
+        private void CheeseContext() => CurrentContentVM = new CheesePage();
 
         private void IngredientContext() => CurrentContentVM = new IngredientPage();
         private void CurrentContext() => CurrentContentVM = new StaffPage();

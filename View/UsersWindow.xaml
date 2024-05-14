@@ -6,7 +6,75 @@
         xmlns:local="clr-namespace:Formaggi.View"
         mc:Ignorable="d"
         Title="UsersWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="AntiqueWhite"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button CommandParameter="Ricotta">
+            <Button.Background>
+                <ImageBrush ImageSource="/Image/ricotta.jpg" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button CommandParameter="Gorgonzola" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="/Image/gorgonzola.jpg" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button CommandParameter="Mascarpone" Grid.Column="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/Image/mascarpone.jpg" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button CommandParameter="Mozzarella" Grid.Column="0" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush ImageSource="/Image/mozzarella.jpg" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button CommandParameter="Pecorino" Grid.Column="1" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush ImageSource="/Image/pecorino.jpg" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button  CommandParameter="Parmigiano" Grid.Column="2" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush ImageSource="/Image/parmigiano.jpg" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="2" Background="#FFE6D8CC" BorderBrush="#FFF7BB91">
+            <Button Width="200" Height="30" Content="To order" />
+        </Border>
     </Grid>
 </Window>

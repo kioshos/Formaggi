@@ -10,7 +10,7 @@ namespace Formaggi.Model
     {
       
 
-        public static int ID { get; private set; }
+        public int ID { get; set; }
         public string Name { get; set; }
         public int role { get; set; }
         public string Password { get; set; }

@@ -1,26 +1,22 @@
 ﻿using Formaggi.Model;
 using Formaggi.Services;
 using Microsoft.Data.SqlClient;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Formaggi.ViewModel
 {
     public  class StaffViewModel : DatabaseConnection
     {
-        private List<Model.Staff> _staffs;
-
-        public List<Staff> Staffs
-        {
-            get
-            {
-                return _staffs;
-            }
-        }
+        private Services.StaffContext _staffContext;
         private string _staffName;
         private string _staffContact;
         private string _staffAddress;
@@ -28,6 +24,7 @@ namespace Formaggi.ViewModel
         private decimal _staffSalary;
 
         public ICommand AddNewStaffCommand { get; private set; }
+        public ICommand RemoveStaffCommand { get; private set; }
         public string StaffName { get => _staffName; set => _staffName = value; }
         public string StaffContact { get => _staffContact; set => _staffContact = value; }
         public string StaffAddress { get => _staffAddress; set => _staffAddress = value; }
@@ -40,46 +37,45 @@ namespace Formaggi.ViewModel
             StaffAddress = String.Empty;
             StaffBirth = DateTime.MinValue;
             StaffSalary = 0;
-            _staffs = null;
-            GetUsers();
-            //_staffContext = new Services.StaffContext();
+            _staffContext = new Services.StaffContext();
             AddNewStaffCommand = new RelayCommand(AddStaff,null);
+            RemoveStaffCommand = new RelayCommand(RemoveStaff,null);
         }
-        public void GetUsers()
-        {
-            List<Staff> staffs = new List<Staff>();
-
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT * FROM CheeseMaker";
-
-                SqlCommand getUsersCommand = new SqlCommand(query, connection);
-
-                using (SqlDataReader reader = getUsersCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        staffs.Add(new Staff
-                        {
-                            Name = reader["cheesePerson_Name"].ToString(),
-                            Contact = reader["cheesePreson_Contact"].ToString(),
-                            Address = reader["cheesePreson_Address"].ToString(),
-                            Birth = Convert.ToDateTime(reader["cheesePerson_Birth"]),
-                            Salary = Convert.ToDecimal(reader["cheesePerson_Salary"]),
-
-                        });
-                    }
-                }
-            }
-
-            _staffs = staffs;
-        }
-        private void AddStaff()
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void RemoveStaff()
         {
             throw new NotImplementedException();
         }
+
+        private void AddStaff()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    string addUserQuery = "INSERT INTO CheeseMaker (cheesePerson_Name, cheesePreson_Contact, cheesePreson_Address, cheesePerson_Birth, cheesePerson_Salary)  VALUES (@name, @contact, @address,  @birth, @salary)";
+                    SqlCommand addUserCMD = new SqlCommand(addUserQuery, connection);
+                    addUserCMD.Parameters.AddWithValue("@name", StaffName);
+                    addUserCMD.Parameters.AddWithValue("@contact", StaffContact);
+                    addUserCMD.Parameters.AddWithValue("@address", StaffAddress);
+                    addUserCMD.Parameters.AddWithValue("@birth", StaffBirth);
+                    addUserCMD.Parameters.AddWithValue("@salary", StaffSalary);
+
+                    addUserCMD.ExecuteNonQuery();
+
+
+                }
+                MessageBox.Show("Success!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+       
     }
 }

@@ -10,6 +10,30 @@
 
   <ItemGroup>
     <None Remove="Image\azzedine-rouichi-YW_5rJvAdKw-unsplash.jpg" />
+    <None Remove="Image\gorgonzola.jpg" />
+    <None Remove="Image\mascarpone.jpg" />
+    <None Remove="Image\mozzarella.jpg" />
+    <None Remove="Image\parmigiano.jpg" />
+    <None Remove="Image\pecorino.jpg" />
+    <None Remove="Image\ricotta.jpg" />
+    <None Remove="Styles\UbuntuMono-Italic.ttf" />
+    <None Remove="Styles\UbuntuMono-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\mascarpone.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\gorgonzola.jpg" />
+    <Resource Include="Image\mozzarella.jpg" />
+    <Resource Include="Image\parmigiano.jpg" />
+    <Resource Include="Image\pecorino.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\ricotta.jpg" />
+    <Resource Include="Styles\UbuntuMono-Italic.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\azzedine-rouichi-YW_5rJvAdKw-unsplash.jpg">
+    <Resource Include="Styles\UbuntuMono-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

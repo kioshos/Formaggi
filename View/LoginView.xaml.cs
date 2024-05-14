@@ -27,12 +27,12 @@ namespace Formaggi.View
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrationWindow registration = new RegistrationWindow();
-            registration.Show();
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    RegistrationWindow registration = new RegistrationWindow();
+        //    registration.Show();
 
-        }
+        //}
 
         //    private void Button_Click(object sender, RoutedEventArgs e)
         //    {
