@@ -60,7 +60,7 @@ namespace Formaggi.Services
             _orders = orders;
         }
 
-        public void ToOrder(string cheeseName, DateTime orderDate, int orderNumber, bool orderStatus, int usersID)
+        public void ToOrder(Order order)
         {
             
             
@@ -72,13 +72,13 @@ namespace Formaggi.Services
                     
                     string addUserQuery = "INSERT INTO CheeseOrder (Cheese_Name, Order_Date, Order_Number, Order_Status, users_id) VALUES (@cheeseName, @orderDate, @orderNumber, @orderStatus, @userid);";
                     SqlParameter dateParam = new SqlParameter("@date", SqlDbType.DateTime);
-                    dateParam.Value = orderDate;
+                    dateParam.Value = order.OrderDate;
                     SqlCommand addUserCMD = new SqlCommand(addUserQuery, connection);
-                    addUserCMD.Parameters.AddWithValue("@cheeseName", cheeseName);
-                    addUserCMD.Parameters.AddWithValue("@orderDate", orderDate);
-                    addUserCMD.Parameters.AddWithValue("@orderNumber", orderNumber);
-                    addUserCMD.Parameters.AddWithValue("@orderStatus", orderStatus);
-                    addUserCMD.Parameters.AddWithValue("@userid", usersID);
+                    addUserCMD.Parameters.AddWithValue("@cheeseName", order.OrderCheeseName);
+                    addUserCMD.Parameters.AddWithValue("@orderDate", order.OrderDate);
+                    addUserCMD.Parameters.AddWithValue("@orderNumber", order.OrderNumber);
+                    addUserCMD.Parameters.AddWithValue("@orderStatus", order.OrderStatus);
+                    addUserCMD.Parameters.AddWithValue("@userid", order.UsersId);
 
                     addUserCMD.ExecuteNonQuery();
 

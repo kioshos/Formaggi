@@ -9,8 +9,8 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="Please, enter the count of cheese: "/>
-            <TextBox Text="{Binding OrderNumber, Mode=TwoWay}"/>
-            <Button Content="OK" Command="{Binding SetCheeseCountCommand }"></Button>
+            <TextBox x:Name="test" />
+            <Button Content="OK" Click="Button_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

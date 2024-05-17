@@ -23,6 +23,7 @@ namespace Formaggi.View
         public CheesePage()
         {
             InitializeComponent();
+
         }
     }
 }

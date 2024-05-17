@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="StaffWindow" Height="450" Width="800">
     <Grid>
-        
+        <!--Тут працівники дивляться інгрідієнти для сиру + додає сири до складу-->
     </Grid>
 </Window>

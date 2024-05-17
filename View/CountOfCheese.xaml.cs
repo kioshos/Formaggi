@@ -1,4 +1,5 @@
-﻿using Formaggi.ViewModel;
+﻿using Formaggi.Model;
+using Formaggi.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Formaggi.View
 {
@@ -20,10 +22,18 @@ namespace Formaggi.View
     /// </summary>
     public partial class CountOfCheese : Window
     {
+        public int Count { get; set; }
+
         public CountOfCheese()
         {
             InitializeComponent();
-            DataContext  = new ViewModel.UsersWindowViewModel();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Count = Convert.ToInt32(test.Text);
+            DialogResult = true;
         }
     }
 }
