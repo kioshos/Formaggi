@@ -43,10 +43,10 @@ namespace Formaggi.ViewModel
             Email = string.Empty;
             Address = string.Empty;
             _usersContext= new Services.UsersContext();
-            RegistrateCommand = new RelayCommand(Registration,null);
+            RegistrateCommand = new RelayCommand<object>(Registration,null);
             
         }
   
-         private void Registration() => _usersContext.RegistrateUser(Name, Email, Address, Login, Password);
+         private void Registration(object parameter) => _usersContext.RegistrateUser(Name, Email, Address, Login, Password);
     }
 }

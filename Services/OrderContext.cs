@@ -4,6 +4,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -16,7 +17,6 @@ namespace Formaggi.Services
     public class OrderContext : DatabaseConnection
     {
         private List<Model.Order> _orders;
-
         public List<Order> Orders 
         {
             get
@@ -50,7 +50,7 @@ namespace Formaggi.Services
                             OrderCheeseName = reader["Cheese_Name"].ToString(),
                             OrderDate = Convert.ToDateTime(reader["Order_Date"]),
                             OrderNumber = Convert.ToInt32(reader["Order_Number"]),
-                            OrderStatus = Convert.ToBoolean(reader["OrderStatus"]),
+                            OrderStatus = Convert.ToBoolean(reader["Order_Status"]),
                             UsersId = Convert.ToInt32(reader["users_id"])
                         });
                     }
@@ -59,19 +59,24 @@ namespace Formaggi.Services
 
             _orders = orders;
         }
+
         public void ToOrder(string cheeseName, DateTime orderDate, int orderNumber, bool orderStatus, int usersID)
         {
-
+            
+            
             try
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    string addUserQuery = "INSERT INTO CheeseOrder (Cheese_Name, Order_Date, Order_Number, Order_Status, users_id) VALUES (@cheeseName, CAST('@orderDate' AS DATE), @orderNumber, @orderStatus, @userid);";
+                    
+                    string addUserQuery = "INSERT INTO CheeseOrder (Cheese_Name, Order_Date, Order_Number, Order_Status, users_id) VALUES (@cheeseName, @orderDate, @orderNumber, @orderStatus, @userid);";
+                    SqlParameter dateParam = new SqlParameter("@date", SqlDbType.DateTime);
+                    dateParam.Value = orderDate;
                     SqlCommand addUserCMD = new SqlCommand(addUserQuery, connection);
                     addUserCMD.Parameters.AddWithValue("@cheeseName", cheeseName);
                     addUserCMD.Parameters.AddWithValue("@orderDate", orderDate);
-                    addUserCMD.Parameters.AddWithValue("@orderNumbere", orderNumber);
+                    addUserCMD.Parameters.AddWithValue("@orderNumber", orderNumber);
                     addUserCMD.Parameters.AddWithValue("@orderStatus", orderStatus);
                     addUserCMD.Parameters.AddWithValue("@userid", usersID);
 

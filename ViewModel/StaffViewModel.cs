@@ -25,6 +25,7 @@ namespace Formaggi.ViewModel
 
         public ICommand AddNewStaffCommand { get; private set; }
         public ICommand RemoveStaffCommand { get; private set; }
+        public ICommand OpenAddStaffCommand { get; private set; }
         public string StaffName { get => _staffName; set => _staffName = value; }
         public string StaffContact { get => _staffContact; set => _staffContact = value; }
         public string StaffAddress { get => _staffAddress; set => _staffAddress = value; }
@@ -38,19 +39,27 @@ namespace Formaggi.ViewModel
             StaffBirth = DateTime.MinValue;
             StaffSalary = 0;
             _staffContext = new Services.StaffContext();
-            AddNewStaffCommand = new RelayCommand(AddStaff,null);
-            RemoveStaffCommand = new RelayCommand(RemoveStaff,null);
+            AddNewStaffCommand = new RelayCommand<object>(AddStaff,null);
+            RemoveStaffCommand = new RelayCommand<object>(RemoveStaff,null);
+            OpenAddStaffCommand = new RelayCommand<object>(OpenAddStaff,null);
         }
+
+        private void OpenAddStaff(object obj)
+        {
+            Window add = new View.AddNewStaff();
+            add.Show();
+        }
+
         /// <summary>
         /// TODO
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
-        private void RemoveStaff()
+        private void RemoveStaff(object parameter)
         {
             throw new NotImplementedException();
         }
 
-        private void AddStaff()
+        private void AddStaff(object parameter)
         {
             try
             {

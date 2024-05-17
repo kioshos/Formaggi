@@ -43,38 +43,38 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button CommandParameter="Ricotta">
+        <Button CommandParameter="7" Command="{Binding SetCheeseCommand}">
             <Button.Background>
                 <ImageBrush ImageSource="/Image/ricotta.jpg" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button CommandParameter="Gorgonzola" Grid.Column="1">
+        <Button CommandParameter="4" Command="{Binding SetCheeseCommand}" Grid.Column="1">
             <Button.Background>
                 <ImageBrush ImageSource="/Image/gorgonzola.jpg" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button CommandParameter="Mascarpone" Grid.Column="2">
+        <Button CommandParameter="6" Command="{Binding SetCheeseCommand}" Grid.Column="2">
             <Button.Background>
                 <ImageBrush ImageSource="/Image/mascarpone.jpg" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button CommandParameter="Mozzarella" Grid.Column="0" Grid.Row="1">
+        <Button CommandParameter="2" Command="{Binding SetCheeseCommand}" Grid.Column="0" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/Image/mozzarella.jpg" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button CommandParameter="Pecorino" Grid.Column="1" Grid.Row="1">
+        <Button CommandParameter="5" Command="{Binding SetCheeseCommand}" Grid.Column="1" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/Image/pecorino.jpg" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button  CommandParameter="Parmigiano" Grid.Column="2" Grid.Row="1">
+        <Button  CommandParameter="3" Command="{Binding SetCheeseCommand}" Grid.Column="2" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="/Image/parmigiano.jpg" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
         <Border Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="2" Background="#FFE6D8CC" BorderBrush="#FFF7BB91">
-            <Button Width="200" Height="30" Content="To order" />
+            <Button Width="200" Height="30" Content="To order" Command="{Binding ToOrderCommand}" />
         </Border>
     </Grid>
 </Window>

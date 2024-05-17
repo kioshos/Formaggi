@@ -31,15 +31,15 @@ namespace Formaggi.ViewModel
 
         public ManagerViewModel()
         {
-            CurrentContentCommand = new RelayCommand(CurrentContext,null);
-            IngredientContentCommand = new RelayCommand(IngredientContext, null);
-            CheeseContentCommand = new RelayCommand(CheeseContext,null);
+            CurrentContentCommand = new RelayCommand<object>(CurrentContext,null);
+            IngredientContentCommand = new RelayCommand<object>(IngredientContext, null);
+            CheeseContentCommand = new RelayCommand<object>(CheeseContext,null);
         }
 
-        private void CheeseContext() => CurrentContentVM = new CheesePage();
+        private void CheeseContext(object parameter) => CurrentContentVM = new CheesePage();
 
-        private void IngredientContext() => CurrentContentVM = new IngredientPage();
-        private void CurrentContext() => CurrentContentVM = new StaffPage();
+        private void IngredientContext(object parameter) => CurrentContentVM = new IngredientPage();
+        private void CurrentContext(object parameter) => CurrentContentVM = new StaffPage();
 
     }
 }

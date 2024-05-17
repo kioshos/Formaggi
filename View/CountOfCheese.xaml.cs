@@ -16,17 +16,14 @@ using System.Windows.Shapes;
 namespace Formaggi.View
 {
     /// <summary>
-    /// Interaction logic for ManagerWindow.xaml
+    /// Interaction logic for CountOfCheese.xaml
     /// </summary>
-    public partial class ManagerWindow : Window
+    public partial class CountOfCheese : Window
     {
-        public ManagerWindow()
+        public CountOfCheese()
         {
             InitializeComponent();
-            DataContext = new ManagerViewModel();
-
+            DataContext  = new ViewModel.UsersWindowViewModel();
         }
-
-       
     }
 }

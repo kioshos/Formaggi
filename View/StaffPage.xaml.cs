@@ -34,13 +34,15 @@ namespace Formaggi.View
 
         private void AddStaff_Click(object sender, RoutedEventArgs e)
         {
-
+            Window addStaff = new AddNewStaff();
+            addStaff.Show();
         }
 
         private void RemoveStaff_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
 
 
 

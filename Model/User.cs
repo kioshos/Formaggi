@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Formaggi.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.TextFormatting;
 
 namespace Formaggi.Model
 {
@@ -28,5 +30,6 @@ namespace Formaggi.Model
             Email = String.Empty;
             Address = String.Empty;
         }
+       
     }
 }

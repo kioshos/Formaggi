@@ -22,6 +22,7 @@ namespace Formaggi.View
         public UsersWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel.UsersWindowViewModel();
         }
     }
 }

@@ -77,6 +77,7 @@ namespace Formaggi.Services
                     {
                         users.Add(new User
                         {
+                            ID = Convert.ToInt32(reader["users_id"]),
                             Name = reader["Users_Name"].ToString(),
                             Address = reader["Users_Address"].ToString(),
                             Login = reader["ULogin"].ToString().Trim(),
