@@ -10,17 +10,17 @@
         <!-- додають сир до STORAGE -->
         <StackPanel>
             <TextBlock Text="ADD TO STORAGE"/>
-            <TextBlock Text="Name"/>
-            <TextBox Text="{Binding Name, Mode=TwoWay}"/>
-            <TextBlock Text="Login"/>
-            <TextBox Text="{Binding Login, Mode=TwoWay}"/>
-            <TextBlock Text="Password"/>
-            <TextBox Text="{Binding Password, Mode=TwoWay}"/>
-            <TextBlock Text="Email"/>
-            <TextBox Text="{Binding Email, Mode=TwoWay}"/>
+            <TextBlock Text="Quantity"/>
+            <TextBox Text="{Binding Quantity, Mode=TwoWay}"/>
+            <TextBlock Text="ProductionDate"/>
+            <TextBox Text="{Binding ProductionDate, Mode=TwoWay}"/>
+            <TextBlock Text="PaAgingComplete"/>
+            <TextBox Text="{Binding AgingComplete, Mode=TwoWay}"/>
+            <TextBlock Text="ExpirationDate"/>
+            <TextBox Text="{Binding ExpirationDate, Mode=TwoWay}"/>
             <TextBlock Text="Address"/>
-            <TextBox Text="{Binding Address, Mode=TwoWay}"/>
-            <Button Content="Registrate" Command="{Binding RegistrateCommand}"/>
+            <TextBox Text="{Binding Price, Mode=TwoWay}"/>
+            <Button Content="Registrate" Command="{Binding AddCheeseToBatchCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

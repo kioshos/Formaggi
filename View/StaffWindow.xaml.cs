@@ -22,6 +22,7 @@ namespace Formaggi.View
         public StaffWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel.StaffWindowViewModel();
         }
     }
 }

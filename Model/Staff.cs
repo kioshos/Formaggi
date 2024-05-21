@@ -22,7 +22,7 @@ namespace Formaggi.Model
             Name = String.Empty;
             Contact = String.Empty;
             Address = String.Empty;
-            Birth = new DateTime();
+            Birth = DateTime.Now;
             Salary = new decimal();
 
         }

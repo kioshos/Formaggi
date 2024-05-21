@@ -70,7 +70,7 @@ namespace Formaggi.Services
                 {
                     connection.Open();
                     
-                    string addUserQuery = "INSERT INTO CheeseOrder (Cheese_Name, Order_Date, Order_Number, Order_Status, users_id) VALUES (@cheeseName, @orderDate, @orderNumber, @orderStatus, @userid);";
+                    string addUserQuery = "INSERT INTO CheeseOrder (Cheese_Name, Order_Date, Order_Number, Order_Status, Order_Price, users_id) VALUES (@cheeseName, @orderDate, @orderNumber, @orderStatus, @orderPrice, @userid);";
                     SqlParameter dateParam = new SqlParameter("@date", SqlDbType.DateTime);
                     dateParam.Value = order.OrderDate;
                     SqlCommand addUserCMD = new SqlCommand(addUserQuery, connection);
@@ -78,6 +78,7 @@ namespace Formaggi.Services
                     addUserCMD.Parameters.AddWithValue("@orderDate", order.OrderDate);
                     addUserCMD.Parameters.AddWithValue("@orderNumber", order.OrderNumber);
                     addUserCMD.Parameters.AddWithValue("@orderStatus", order.OrderStatus);
+                    addUserCMD.Parameters.AddWithValue("@orderPrice", order.OrderPrice);
                     addUserCMD.Parameters.AddWithValue("@userid", order.UsersId);
 
                     addUserCMD.ExecuteNonQuery();
