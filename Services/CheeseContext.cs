@@ -59,5 +59,28 @@ namespace Formaggi.Services
 
             _cheeses = cheeses;
         }
+        public List<string> GetCheesesName()
+        {
+            List<string> cheeses = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT cheese_Name FROM Cheese ORDER BY cheese_id";
+
+                SqlCommand getUsersCommand = new SqlCommand(query, connection);
+
+                using (SqlDataReader reader = getUsersCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        cheeses.Add(reader["cheese_Name"].ToString());
+                    }
+                }
+            }
+
+            return cheeses;
+        }
     }
 }

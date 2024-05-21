@@ -27,7 +27,7 @@ namespace Formaggi.Services
             _batches = null;
         }
 
-        public void AddCheeseToBatch(decimal cheeseQuantity, DateTime cheeseProduction, DateTime cheeseAging, DateTime cheeseExpiration, decimal cheesePrice)
+        public void AddCheeseToBatch(int cheese_id,decimal cheeseQuantity, DateTime cheeseProduction, DateTime cheeseAging, DateTime cheeseExpiration, decimal cheesePrice)
         {
 
             try
@@ -36,10 +36,11 @@ namespace Formaggi.Services
                 {
                     connection.Open();
 
-                    string addUserQuery = "INSERT INTO CheeseStorage ( cheese_Quantity, cheese_Production, cheese_AgingComplete, cheese_Expiration, cheese_Price) VALUES ( @cheeseQuantity, @cheeseProduction, @cheeseAgingComplete, @cheeseExpiration, @cheesePrice);";
+                    string addUserQuery = "INSERT INTO CheeseStorage (cheese_id, cheese_Quantity, cheese_Production, cheese_AgingComplete, cheese_Expiration, cheese_Price) VALUES (@cheese_id, @cheeseQuantity, @cheeseProduction, @cheeseAgingComplete, @cheeseExpiration, @cheesePrice);";
                     SqlParameter dateParam = new SqlParameter("@cheeseProduction", SqlDbType.DateTime);
          
                     SqlCommand addUserCMD = new SqlCommand(addUserQuery, connection);
+                    addUserCMD.Parameters.AddWithValue("@cheese_id", cheese_id);
                     addUserCMD.Parameters.AddWithValue("@cheeseQuantity", cheeseQuantity);
                     addUserCMD.Parameters.AddWithValue("@cheeseProduction", cheeseProduction);
                     addUserCMD.Parameters.AddWithValue("@cheeseAgingComplete", cheeseAging);
