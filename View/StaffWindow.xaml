@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="StaffWindow" Height="450" Width="800">
     <Grid>
-        <!--Тут працівники дивляться інгрідієнти для сиру + додає сири до складу-->
+        <!-- додають сир до STORAGE -->
+        <StackPanel>
+            <TextBlock Text="ADD TO STORAGE"/>
+            <TextBlock Text="Name"/>
+            <TextBox Text="{Binding Name, Mode=TwoWay}"/>
+            <TextBlock Text="Login"/>
+            <TextBox Text="{Binding Login, Mode=TwoWay}"/>
+            <TextBlock Text="Password"/>
+            <TextBox Text="{Binding Password, Mode=TwoWay}"/>
+            <TextBlock Text="Email"/>
+            <TextBox Text="{Binding Email, Mode=TwoWay}"/>
+            <TextBlock Text="Address"/>
+            <TextBox Text="{Binding Address, Mode=TwoWay}"/>
+            <Button Content="Registrate" Command="{Binding RegistrateCommand}"/>
+        </StackPanel>
     </Grid>
 </Window>

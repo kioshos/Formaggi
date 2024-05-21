@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Formaggi.Model
 {
-    class Ingredient
+    public class Ingredient
     {
         public int ID { get; set; }
         public int SupplierID { get; set; }

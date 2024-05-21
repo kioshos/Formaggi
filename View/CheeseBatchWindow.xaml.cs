@@ -1,4 +1,4 @@
-﻿using Formaggi.ViewModel;
+﻿using Formaggi.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Formaggi.View
+namespace Formaggi
 {
     /// <summary>
-    /// Interaction logic for CheesePage.xaml
+    /// Interaction logic for CheeseBatchWindow.xaml
     /// </summary>
-    public partial class CheesePage : Page
+    public partial class CheeseBatchWindow : Window
     {
-        public CheesePage()
+        public CheeseBatchWindow(int cheeseID)
         {
             InitializeComponent();
-            DataContext = new CheesePageViewModel();
+            DataContext = new ViewModel.BatchWindowViewModel(cheeseID);
         }
     }
 }
