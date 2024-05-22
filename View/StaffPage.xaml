@@ -13,7 +13,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="UsersGrid" Grid.Row="0" AutoGenerateColumns="False" ItemsSource="{Binding Staffs}">
+        <DataGrid x:Name="UsersGrid" Grid.Row="0" AutoGenerateColumns="False" ItemsSource="{Binding Staffs}"  SelectedItem="{Binding SelectedStaff, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Contact" Binding="{Binding Contact}"/>
@@ -30,7 +30,7 @@
         </DataGrid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="AddStaff" Width="200" Height="30" Content="Add" Click="AddStaff_Click" />
-            <Button x:Name="RemoveStaff" Width="200" Height="30" Margin="5,0,0,0" Content="Remove" Click="RemoveStaff_Click"/>
+            <Button x:Name="RemoveStaff" Width="200" Height="30" Margin="5,0,0,0" Content="Remove" Command="{Binding RemoveStaffCommand}"/>
         </StackPanel>
     </Grid>
 </Page>

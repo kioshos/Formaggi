@@ -28,7 +28,7 @@ namespace Formaggi.View
         public StaffPage()
         {
             InitializeComponent();
-            DataContext = new StaffContext();
+            DataContext = new StaffViewModel();
 
         }
 
@@ -38,10 +38,7 @@ namespace Formaggi.View
             addStaff.Show();
         }
 
-        private void RemoveStaff_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
 
 

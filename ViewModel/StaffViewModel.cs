@@ -4,19 +4,23 @@ using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Formaggi.ViewModel
 {
-    public  class StaffViewModel : DatabaseConnection
+    public  class StaffViewModel : ViewModelBase
     {
         private Services.StaffContext _staffContext;
+        private ObservableCollection<Staff> _staffs;
+        private Staff _selectedStaff;
         private string _staffName;
         private string _staffContact;
         private string _staffAddress;
@@ -39,52 +43,61 @@ namespace Formaggi.ViewModel
             StaffBirth = DateTime.MinValue;
             StaffSalary = 0;
             _staffContext = new Services.StaffContext();
+            _staffs = new ObservableCollection<Staff>(_staffContext.GetUsers()) ;
             AddNewStaffCommand = new RelayCommand<object>(AddStaff,null);
             RemoveStaffCommand = new RelayCommand<object>(RemoveStaff,null);
             OpenAddStaffCommand = new RelayCommand<object>(OpenAddStaff,null);
         }
+
+        private void AddStaff(object obj) => _staffContext.AddStaff(StaffName,StaffContact,StaffAddress,StaffBirth,StaffSalary);
 
         private void OpenAddStaff(object obj)
         {
             Window add = new View.AddNewStaff();
             add.Show();
         }
+        public ObservableCollection<Staff> Staffs
+        {
+            get => _staffs;
+            set
+            {
+                _staffs = value;
+                OnPropertyChanged(nameof(Staffs));
+            }
+        }
+        public Staff SelectedStaff
+        {
+            get => _selectedStaff;
+            set
+            {
+                _selectedStaff = value;
+                OnPropertyChanged(nameof(SelectedStaff));
+            }
+        }
 
-        /// <summary>
-        /// TODO
-        /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         private void RemoveStaff(object parameter)
         {
-            throw new NotImplementedException();
-        }
-
-        private void AddStaff(object parameter)
-        {
-            try
+            if (SelectedStaff != null)
             {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
+                bool success = _staffContext.RemoveUser(SelectedStaff.ID);
+                if (success)
                 {
-                    connection.Open();
-                    string addUserQuery = "INSERT INTO CheeseMaker (cheesePerson_Name, cheesePreson_Contact, cheesePreson_Address, cheesePerson_Birth, cheesePerson_Salary)  VALUES (@name, @contact, @address,  @birth, @salary)";
-                    SqlCommand addUserCMD = new SqlCommand(addUserQuery, connection);
-                    addUserCMD.Parameters.AddWithValue("@name", StaffName);
-                    addUserCMD.Parameters.AddWithValue("@contact", StaffContact);
-                    addUserCMD.Parameters.AddWithValue("@address", StaffAddress);
-                    addUserCMD.Parameters.AddWithValue("@birth", StaffBirth);
-                    addUserCMD.Parameters.AddWithValue("@salary", StaffSalary);
-
-                    addUserCMD.ExecuteNonQuery();
-
-
+                    MessageBox.Show("Staff member removed successfully.");
+                    _staffContext.GetUsers();
+                    OnPropertyChanged(nameof(Staffs)); 
                 }
-                MessageBox.Show("Success!");
+                else
+                {
+                    MessageBox.Show("Failed to remove staff member.");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("No staff member selected.");
             }
         }
+
+      
        
     }
 }
