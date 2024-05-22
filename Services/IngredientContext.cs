@@ -48,7 +48,7 @@ namespace Formaggi.Services
                         {
                             IngredientName = reader["ingredient_Name"].ToString(),
                             Quantity = Convert.ToInt32(reader["ingredient_Quantity"]),
-                            ExpireDate = Convert.ToDateTime(reader["ingredient_Quantity"]),
+                            ExpireDate = Convert.ToDateTime(reader["ingredient_Expire"]),
                             PurchaseDate = Convert.ToDateTime(reader["ingredient_Purchare"]),
                             Price = Convert.ToDecimal(reader["ingredient_Price"]),
 

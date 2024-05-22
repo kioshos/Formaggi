@@ -13,13 +13,13 @@
             <TextBlock Text="Quantity"/>
             <TextBox Text="{Binding Quantity, Mode=TwoWay}"/>
             <TextBlock Text="ProductionDate"/>
-            <TextBox Text="{Binding ProductionDate, Mode=TwoWay}"/>
+            <DatePicker SelectedDate="{Binding ProductionDate, Mode=TwoWay}"/>
             <TextBlock Text="Cheese"/>
             <ComboBox ItemsSource="{Binding Cheeses}" SelectedIndex="{Binding CheeseID}"/>
             <TextBlock Text="PaAgingComplete"/>
-            <TextBox Text="{Binding AgingComplete, Mode=TwoWay}"/>
+            <DatePicker SelectedDate="{Binding AgingComplete, Mode=TwoWay}"/>
             <TextBlock Text="ExpirationDate"/>
-            <DatePicker Text="{Binding ExpirationDate, Mode=TwoWay}"/>
+            <DatePicker SelectedDate="{Binding ExpirationDate, Mode=TwoWay}"/>
             <TextBlock Text="Price"/>
             <TextBox Text="{Binding Price, Mode=TwoWay}"/>
             <Button Content="Registrate" Command="{Binding AddCheeseToBatchCommand}"/>

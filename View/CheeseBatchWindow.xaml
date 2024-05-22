@@ -10,9 +10,9 @@
         <ListView ItemsSource="{Binding Batches}" Margin="10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="50"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50"/>
                     <GridViewColumn Header="Cheese ID" DisplayMemberBinding="{Binding CheeseID}" Width="100"/>
-                    <GridViewColumn Header="Weight (kg)" DisplayMemberBinding="{Binding Weight}" Width="100"/>
+                    <GridViewColumn Header="Weight (kg)" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
                 </GridView>
             </ListView.View>

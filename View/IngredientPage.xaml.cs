@@ -23,6 +23,7 @@ namespace Formaggi.View
         public IngredientPage()
         {
             InitializeComponent();
+            DataContext = new Services.IngredientContext();
         }
     }
 }
