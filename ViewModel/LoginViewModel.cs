@@ -77,15 +77,3 @@ namespace Formaggi.ViewModel
     }
 
 }
-/*
- User currentUser = _usersContext.IsClientExist(Username, Password);
-            UsersWindow usersWindow = new UsersWindow();
-            if (currentUser != null && currentUser.role == 3)
-            {
-                usersWindow.Show();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect data! ");
-            }
- */

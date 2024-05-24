@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Formaggi.View"
         mc:Ignorable="d"
-        Title="AddNewStaff" Height="450" Width="800">
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="10">
             <TextBlock Text="ADD"/>
             <TextBlock Text="Name"/>
             <TextBox Text="{Binding StaffName, Mode=TwoWay}"/>
@@ -19,7 +20,7 @@
             <DatePicker SelectedDate="{Binding StaffBirth}"/>
             <TextBlock Text="Salary"/>
             <TextBox Text="{Binding StaffSalary, Mode=TwoWay}"/>
-            <Button Content="Add" Command="{Binding AddNewStaffCommand}"/>
+            <Button Content="Add" Command="{Binding AddNewStaffCommand}" Margin="15"/>
         </StackPanel>
     </Grid>
 </Window>

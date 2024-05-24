@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Formaggi"
         mc:Ignorable="d"
-        Title="CheeseBatchWindow" Height="450" Width="800">
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <ListView ItemsSource="{Binding Batches}" Margin="10">
             <ListView.View>

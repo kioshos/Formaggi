@@ -40,7 +40,7 @@ namespace Formaggi.ViewModel
             StaffName = String.Empty;
             StaffContact = String.Empty;
             StaffAddress = String.Empty;
-            StaffBirth = DateTime.MinValue;
+            StaffBirth = DateTime.Now;
             StaffSalary = 0;
             _staffContext = new Services.StaffContext();
             _staffs = new ObservableCollection<Staff>(_staffContext.GetUsers()) ;

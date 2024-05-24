@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Formaggi.View"
         mc:Ignorable="d"
-        Title="RegistrationWindow" Height="450" Width="400"
+        Height="450" Width="400"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="250">
             <TextBlock Text="REGISTRATION"/>
             <TextBlock Text="Name"/>
             <TextBox Text="{Binding Name, Mode=TwoWay}"/>

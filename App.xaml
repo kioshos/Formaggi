@@ -10,5 +10,6 @@
         <BitmapImage x:Key="mozzarella" UriSource="pack://application:,,,/Image/mozzarella.jpg"/>
         <BitmapImage x:Key="pecorino" UriSource="pack://application:,,,/Image/pecorino.jpg"/>
         <BitmapImage x:Key="ricotta" UriSource="pack://application:,,,/Image/ricotta.jpg"/>
+        <FontFamily x:Key="Ubuntu">pack://application:,,,/StylesUbuntuMono-Regular.ttf#UbuntuMono</FontFamily>
     </Application.Resources>
 </Application>

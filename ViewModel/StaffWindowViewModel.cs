@@ -36,9 +36,9 @@ namespace Formaggi.ViewModel
         public StaffWindowViewModel()
         {
             Quantity = 0;
-            ProductionDate = DateTime.MinValue;
-            AgingComplete = DateTime.MinValue;
-            ExpirationDate = DateTime.MinValue;
+            ProductionDate = DateTime.Now;
+            AgingComplete = DateTime.Now;
+            ExpirationDate = DateTime.Now;
             Price = 0;
             _cheeseID = 0;
             _storageContext = new Services.StorageContext();

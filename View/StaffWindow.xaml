@@ -5,24 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Formaggi.View"
         mc:Ignorable="d"
-        Title="StaffWindow" Height="450" Width="800">
-    <Grid>
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid >
         <!-- додають сир до STORAGE -->
-        <StackPanel>
-            <TextBlock Text="ADD TO STORAGE"/>
-            <TextBlock Text="Quantity"/>
-            <TextBox Text="{Binding Quantity, Mode=TwoWay}"/>
-            <TextBlock Text="ProductionDate"/>
-            <DatePicker SelectedDate="{Binding ProductionDate, Mode=TwoWay}"/>
-            <TextBlock Text="Cheese"/>
-            <ComboBox ItemsSource="{Binding Cheeses}" SelectedIndex="{Binding CheeseID}"/>
-            <TextBlock Text="PaAgingComplete"/>
-            <DatePicker SelectedDate="{Binding AgingComplete, Mode=TwoWay}"/>
-            <TextBlock Text="ExpirationDate"/>
-            <DatePicker SelectedDate="{Binding ExpirationDate, Mode=TwoWay}"/>
-            <TextBlock Text="Price"/>
-            <TextBox Text="{Binding Price, Mode=TwoWay}"/>
-            <Button Content="Registrate" Command="{Binding AddCheeseToBatchCommand}"/>
+        <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="ADD TO STORAGE" FontSize="20" FontWeight="Bold" Margin="0,0,0,40" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Quantity:" Width="150" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Quantity, Mode=TwoWay}" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Production Date:" Width="150" VerticalAlignment="Center"/>
+                <DatePicker SelectedDate="{Binding ProductionDate, Mode=TwoWay}" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Cheese:" Width="150" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding Cheeses}" SelectedIndex="{Binding CheeseID}" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Aging Complete:" Width="150" VerticalAlignment="Center"/>
+                <DatePicker SelectedDate="{Binding AgingComplete, Mode=TwoWay}" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Expiration Date:" Width="150" VerticalAlignment="Center"/>
+                <DatePicker SelectedDate="{Binding ExpirationDate, Mode=TwoWay}" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Price:" Width="150" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Price, Mode=TwoWay}" Width="200"/>
+            </StackPanel>
+
+            <Button Content="ENTER" Command="{Binding AddCheeseToBatchCommand}" Width="200" Height="40" Margin="0,20,0,0" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Window>
