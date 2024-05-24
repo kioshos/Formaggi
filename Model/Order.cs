@@ -8,7 +8,8 @@ namespace Formaggi.Model
 {
     public class Order
     {
-        public static int OrderID { get; set; }
+        public int OrderID { get; set; }
+
         public string OrderCheeseName { get; set; }
         public DateTime OrderDate { get; set; }
         public int OrderNumber {  get; set; }

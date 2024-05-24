@@ -17,7 +17,7 @@
                 <Button Margin="5" Content="Staff" Command="{Binding CurrentContentCommand}" />
                 <Button Margin="5" Content="Igredients" Command="{Binding IngredientContentCommand}" />
                 <Button Margin="5" Content="Cheeses" Command="{Binding CheeseContentCommand}"/>
-                <Button Margin="5" Content="Orders"/>
+                <Button Margin="5" Content="Orders" Command="{Binding OrderContentCommand}"/>
             </StackPanel>
         </Border>
         <Border Grid.Column="1">

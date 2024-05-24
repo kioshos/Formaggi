@@ -70,7 +70,6 @@ namespace Formaggi.ViewModel
             // Clear the basket after ordering
             _basket.Clear();
 
-            MessageBox.Show("Order placed successfully!");
         }
 
     }

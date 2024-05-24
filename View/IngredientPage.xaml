@@ -14,7 +14,7 @@
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding IngredientName}" Width="50"/>
                     <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
-                    <GridViewColumn Header="ExpireDate" DisplayMemberBinding="{Binding ExpireDate}" Width="100"/> 
+                    <GridViewColumn Header="ExpireDate" DisplayMemberBinding="{Binding ExpireDate, StringFormat={}{0:d}}" Width="100"/> 
                     <GridViewColumn Header="PurchaseDate" DisplayMemberBinding="{Binding PurchaseDate, StringFormat={}{0:d}}" Width="100"/>
                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
                 </GridView>

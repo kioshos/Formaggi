@@ -47,12 +47,14 @@ namespace Formaggi.Services
                     {
                         orders.Add(new Order
                         {
+                            OrderID = Convert.ToInt32(reader["order_id"]),
                             OrderCheeseName = reader["Cheese_Name"].ToString(),
                             OrderDate = Convert.ToDateTime(reader["Order_Date"]),
                             OrderNumber = Convert.ToInt32(reader["Order_Number"]),
                             OrderStatus = Convert.ToBoolean(reader["Order_Status"]),
+                            OrderPrice = Convert.ToDecimal(reader["Order_Price"]),
                             UsersId = Convert.ToInt32(reader["users_id"])
-                        });
+                        }); 
                     }
                 }
             }
@@ -92,17 +94,20 @@ namespace Formaggi.Services
                 MessageBox.Show(ex.ToString());
             }
         }
-        ///TODO
-        //public Order IsOrderExist(string orderCheeseName, string usersName)
-        //{
-        //    using (var context = new YourDbContext())
-        //    {
-        //        var order = context.Orders
-        //            .Include(o => o.User)
-        //            .FirstOrDefault(o => o.OrderCheeseName == orderCheeseName && o.User.UserName == usersName);
+        public void UpdateOrderStatus(int orderId, bool status)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "UPDATE CheeseOrder SET Order_Status = @status WHERE order_id = @orderId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@status", status);
+                command.Parameters.AddWithValue("@orderId", orderId);
+                command.ExecuteNonQuery();
+            }
 
-        //        return order;
-        //    }
-        //}
+            GetOrder();
+        }
+       
     }
 }
